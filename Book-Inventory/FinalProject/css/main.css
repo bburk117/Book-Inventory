@@ -1,0 +1,101 @@
+﻿body {
+	width:100%;
+    background-color: #F7F7E3;
+    color:#800020;
+}
+
+footer {
+    text-align: center;
+    clear: both;
+    text-decoration: none;
+}
+
+.backImg {
+    background-image: url(../images/library.jpg);
+}
+
+.jumbotron {
+    background-color: beige;
+    color: #800020;
+    font-size: 1.5em;
+}
+
+#cbCategory {
+    background-color: #e3e3f7;
+    border: 3px solid #800020;
+    color: #800020;
+}
+
+#cbEditCategory {
+    background-color: #e3e3f7;
+    border: 3px solid saddlebrown;
+    color: #800020;
+}
+
+h1 {
+    text-align: center;
+    text-decoration:underline;
+}
+
+.clearUnderline {
+    text-decoration: none;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.backBtn {
+    color: #800020;
+    font-weight: bold;
+}
+
+aside {
+    width:20%;
+    background-color:beige;
+    float: left;
+    border: thick black solid;
+    padding:1%;
+    text-align:center;
+    
+}
+
+.container {
+    width:79%;
+    float:right;
+    padding:1%;
+    background-color:burlywood;
+}
+
+.optionsMenuContainer {
+    width: 79%;
+    float: left;
+    padding: 1%;
+    margin: 0 2%;
+    background-color: beige;
+}
+
+.topBtn {
+    padding-top:10%;
+}
+
+.bottomBtn {
+    padding-bottom:10%;
+}
+
+#Button1 {
+    background-color: red;
+}
+
+#lbl_format {
+    text-decoration: underline;
+}
+
+#lbl_result {
+    color: green;
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}

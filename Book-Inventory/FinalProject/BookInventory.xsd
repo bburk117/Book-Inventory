@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BookInventory" targetNamespace="http://tempuri.org/BookInventory.xsd" xmlns:mstns="http://tempuri.org/BookInventory.xsd" xmlns="http://tempuri.org/BookInventory.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="IsbnTitleString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IsbnTitleString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.IsbnTitleString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BookTableAdapter" GeneratorDataComponentClassName="BookTableAdapter" Name="BookInventoryTable" UserDataComponentName="BookTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Table].Isbn, [Table].Title, [Table].AuthorLName, [Table].AuthorFName, [Table].Category, [Table].Rating, [Table].Format, Categories.Fiction, Categories.[Children's], Categories.[Foreign], Categories.Romance, 
+                         Categories.Suspense, Categories.[Non-Fiction], Categories.Comedy, Categories.History, Categories.[Sci-Fi], Categories.Textbook, Categories.Autobiography, Categories.Drama, Categories.Horror, Categories.[Self-Help], 
+                         Categories.Thriller, Categories.Biography, Categories.Fantasy, Categories.Religious
+FROM            [Table] INNER JOIN
+                         Categories ON [Table].Isbn = Categories.Isbn</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Isbn" DataSetColumn="Isbn" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="AuthorLName" DataSetColumn="AuthorLName" />
+              <Mapping SourceColumn="AuthorFName" DataSetColumn="AuthorFName" />
+              <Mapping SourceColumn="Category" DataSetColumn="Category" />
+              <Mapping SourceColumn="Rating" DataSetColumn="Rating" />
+              <Mapping SourceColumn="Format" DataSetColumn="Format" />
+              <Mapping SourceColumn="Fiction" DataSetColumn="Fiction" />
+              <Mapping SourceColumn="Children's" DataSetColumn="Children's" />
+              <Mapping SourceColumn="Foreign" DataSetColumn="Foreign" />
+              <Mapping SourceColumn="Romance" DataSetColumn="Romance" />
+              <Mapping SourceColumn="Suspense" DataSetColumn="Suspense" />
+              <Mapping SourceColumn="Non-Fiction" DataSetColumn="Non-Fiction" />
+              <Mapping SourceColumn="Comedy" DataSetColumn="Comedy" />
+              <Mapping SourceColumn="History" DataSetColumn="History" />
+              <Mapping SourceColumn="Sci-Fi" DataSetColumn="Sci-Fi" />
+              <Mapping SourceColumn="Textbook" DataSetColumn="Textbook" />
+              <Mapping SourceColumn="Autobiography" DataSetColumn="Autobiography" />
+              <Mapping SourceColumn="Drama" DataSetColumn="Drama" />
+              <Mapping SourceColumn="Horror" DataSetColumn="Horror" />
+              <Mapping SourceColumn="Self-Help" DataSetColumn="Self-Help" />
+              <Mapping SourceColumn="Thriller" DataSetColumn="Thriller" />
+              <Mapping SourceColumn="Biography" DataSetColumn="Biography" />
+              <Mapping SourceColumn="Fantasy" DataSetColumn="Fantasy" />
+              <Mapping SourceColumn="Religious" DataSetColumn="Religious" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIsbn" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIsbn" GeneratorSourceName="FillByIsbn" GetMethodModifier="Public" GetMethodName="GetDataByIsbn" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIsbn" UserSourceName="FillByIsbn">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [Table].Isbn, [Table].Title, [Table].AuthorLName, [Table].AuthorFName, [Table].Category, [Table].Rating, [Table].Format, Categories.Fiction, Categories.[Children's], Categories.[Foreign], Categories.Romance, 
+                         Categories.Suspense, Categories.[Non-Fiction], Categories.Comedy, Categories.History, Categories.[Sci-Fi], Categories.Textbook, Categories.Autobiography, Categories.Drama, Categories.Horror, Categories.[Self-Help], 
+                         Categories.Thriller, Categories.Biography, Categories.Fantasy, Categories.Religious, Categories.Isbn AS Expr1
+FROM            [Table] INNER JOIN
+                         Categories ON [Table].Isbn = Categories.Isbn
+WHERE [Table].Isbn = @Isbn AND Categories.Isbn = @Isbn</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Isbn" ColumnName="Isbn" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Isbn" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Isbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectName="dbo.Categories" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCategory" GetMethodModifier="Public" GetMethodName="GetDataByCategory" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCategory" UserSourceName="GetDataByCategory">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Categories.[Children's] AS Expr3, Categories.[Foreign] AS Expr4, Categories.Romance AS Expr5, Categories.Suspense AS Expr6, Categories.[Non-Fiction] AS Expr7, Categories.Comedy AS Expr8, Categories.History AS Expr9, 
+                         Categories.[Sci-Fi] AS Expr10, Categories.Textbook AS Expr11, Categories.Autobiography AS Expr12, Categories.Drama AS Expr13, Categories.Horror AS Expr14, Categories.[Self-Help] AS Expr15, Categories.Thriller AS Expr16, 
+                         Categories.Biography AS Expr17, Categories.Fantasy AS Expr18, Categories.Religious AS Expr19, Categories.Fiction AS Expr1, Categories.Isbn AS Expr2
+FROM            [Table] INNER JOIN
+                         Categories ON [Table].Isbn = Categories.Isbn</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertBook" Modifier="Public" Name="InsertBook" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertBook">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [Table]
+                         (Isbn, Title, AuthorLName, AuthorFName, Rating, Format)
+VALUES        (@Isbn,@Title,@AuthorLName,@AuthorFName,@Rating,@Format)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Isbn" ColumnName="Isbn" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Isbn" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Isbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Title" ColumnName="Title" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Title" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Title" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AuthorLName" ColumnName="AuthorLName" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@AuthorLName" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="AuthorLName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AuthorFName" ColumnName="AuthorFName" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@AuthorFName" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="AuthorFName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Rating" ColumnName="Rating" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Rating" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Format" ColumnName="Format" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Format" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Format" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertBookCategories" Modifier="Public" Name="InsertBookCategories" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertBookCategories">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Categories
+                         (Isbn, Fiction, [Foreign], [Children's], Romance, Suspense, [Non-Fiction], Comedy, History, [Sci-Fi], Textbook, Autobiography, Drama, Horror, [Self-Help], Thriller, Biography, Fantasy, Religious)
+VALUES        (@Isbn,@Fiction,@Foreign,@Childrens,@Romance,@Suspense,@NonFiction,@Comedy,@History,@SciFi,@Textbook,@Autobiography,@Drama,@Horror,@SelfHelp,@Thriller,@Biography,@Fantasy,@Religious)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Isbn" ColumnName="Isbn" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Isbn" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Isbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fiction" ColumnName="Fiction" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Fiction" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Fiction" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Foreign" ColumnName="Foreign" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Foreign" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Foreign" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Childrens" ColumnName="Children's" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Childrens" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Children's" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Romance" ColumnName="Romance" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Romance" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Romance" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Suspense" ColumnName="Suspense" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Suspense" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Suspense" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NonFiction" ColumnName="Non-Fiction" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@NonFiction" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Non-Fiction" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Comedy" ColumnName="Comedy" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Comedy" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Comedy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="History" ColumnName="History" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@History" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="History" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SciFi" ColumnName="Sci-Fi" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@SciFi" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Sci-Fi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Textbook" ColumnName="Textbook" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Textbook" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Textbook" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Autobiography" ColumnName="Autobiography" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Autobiography" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Autobiography" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Drama" ColumnName="Drama" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Drama" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Drama" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Horror" ColumnName="Horror" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Horror" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Horror" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SelfHelp" ColumnName="Self-Help" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@SelfHelp" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Self-Help" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Thriller" ColumnName="Thriller" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Thriller" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Thriller" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Biography" ColumnName="Biography" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Biography" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Biography" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fantasy" ColumnName="Fantasy" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Fantasy" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Fantasy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Religious" ColumnName="Religious" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Religious" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Religious" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBookTable" Modifier="Public" Name="UpdateBookTable" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateBookTable">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       [Table]
+SET                Isbn = @Isbn, Title = @Title, AuthorLName = @AuthorLName, AuthorFName = @AuthorFName, Rating = @Rating, Format = @Format
+WHERE        (Isbn = @Isbn)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Isbn" ColumnName="Isbn" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Isbn" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Isbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Title" ColumnName="Title" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Title" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Title" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AuthorLName" ColumnName="AuthorLName" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@AuthorLName" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="AuthorLName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AuthorFName" ColumnName="AuthorFName" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@AuthorFName" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="AuthorFName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Rating" ColumnName="Rating" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Rating" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Format" ColumnName="Format" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.[Table]" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Format" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Format" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="IsbnTitleString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCategories" Modifier="Public" Name="UpdateCategories" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateCategories">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Categories
+SET                Fiction = @Fiction, [Children's] = @Childrens, [Foreign] = @Foreign, Romance = @Romance, Suspense = @Suspense, [Non-Fiction] = @NonFiction, Comedy = @Comedy, History = @History, [Sci-Fi] = @SciFi, 
+                         Textbook = @Textbook, Autobiography = @Autobiography, Drama = @Drama, Horror = @Horror, [Self-Help] = @SelfHelp, Thriller = @Thriller, Biography = @Biography, Fantasy = @Fantasy, Religious = @Religious
+WHERE        (Isbn = @Isbn)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fiction" ColumnName="Fiction" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Fiction" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Fiction" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Childrens" ColumnName="Children's" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Childrens" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Children's" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Foreign" ColumnName="Foreign" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Foreign" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Foreign" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Romance" ColumnName="Romance" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Romance" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Romance" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Suspense" ColumnName="Suspense" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Suspense" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Suspense" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NonFiction" ColumnName="Non-Fiction" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@NonFiction" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Non-Fiction" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Comedy" ColumnName="Comedy" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Comedy" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Comedy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="History" ColumnName="History" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@History" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="History" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SciFi" ColumnName="Sci-Fi" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@SciFi" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Sci-Fi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Textbook" ColumnName="Textbook" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Textbook" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Textbook" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Autobiography" ColumnName="Autobiography" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Autobiography" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Autobiography" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Drama" ColumnName="Drama" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Drama" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Drama" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Horror" ColumnName="Horror" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Horror" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Horror" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SelfHelp" ColumnName="Self-Help" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@SelfHelp" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Self-Help" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Thriller" ColumnName="Thriller" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Thriller" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Thriller" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Biography" ColumnName="Biography" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Biography" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Biography" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fantasy" ColumnName="Fantasy" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Fantasy" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Fantasy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Religious" ColumnName="Religious" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@Religious" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="Religious" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Isbn" ColumnName="Isbn" DataSourceName="[C:\USERS\SPEN2\DOCUMENTS\GITHUB\BOOK-INVENTORY-PROJECT\FINALPROJECT\APP_DATA\INVENTORY.MDF].dbo.Categories" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@Isbn" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Isbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BookInventory" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BookInventory" msprop:Generator_UserDSName="BookInventory">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BookInventoryTable" msprop:Generator_TableClassName="BookInventoryTableDataTable" msprop:Generator_TableVarName="tableBookInventoryTable" msprop:Generator_TablePropName="BookInventoryTable" msprop:Generator_RowDeletingName="BookInventoryTableRowDeleting" msprop:Generator_RowChangingName="BookInventoryTableRowChanging" msprop:Generator_RowEvHandlerName="BookInventoryTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BookInventoryTableRowDeleted" msprop:Generator_UserTableName="BookInventoryTable" msprop:Generator_RowChangedName="BookInventoryTableRowChanged" msprop:Generator_RowEvArgName="BookInventoryTableRowChangeEvent" msprop:Generator_RowClassName="BookInventoryTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Isbn" msprop:Generator_ColumnVarNameInTable="columnIsbn" msprop:Generator_ColumnPropNameInRow="Isbn" msprop:Generator_ColumnPropNameInTable="IsbnColumn" msprop:Generator_UserColumnName="Isbn" type="xs:double" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AuthorLName" msprop:Generator_ColumnVarNameInTable="columnAuthorLName" msprop:Generator_ColumnPropNameInRow="AuthorLName" msprop:Generator_ColumnPropNameInTable="AuthorLNameColumn" msprop:Generator_UserColumnName="AuthorLName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AuthorFName" msprop:Generator_ColumnVarNameInTable="columnAuthorFName" msprop:Generator_ColumnPropNameInRow="AuthorFName" msprop:Generator_ColumnPropNameInTable="AuthorFNameColumn" msprop:Generator_UserColumnName="AuthorFName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rating" msprop:Generator_ColumnVarNameInTable="columnRating" msprop:Generator_ColumnPropNameInRow="Rating" msprop:Generator_ColumnPropNameInTable="RatingColumn" msprop:Generator_UserColumnName="Rating" type="xs:double" minOccurs="0" />
+              <xs:element name="Format" msprop:Generator_ColumnVarNameInTable="columnFormat" msprop:Generator_ColumnPropNameInRow="Format" msprop:Generator_ColumnPropNameInTable="FormatColumn" msprop:Generator_UserColumnName="Format" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fiction" msprop:Generator_ColumnVarNameInTable="columnFiction" msprop:Generator_ColumnPropNameInRow="Fiction" msprop:Generator_ColumnPropNameInTable="FictionColumn" msprop:Generator_UserColumnName="Fiction" type="xs:boolean" />
+              <xs:element name="Children_x0027_s" msprop:Generator_ColumnVarNameInTable="_columnChildren_s" msprop:Generator_ColumnPropNameInRow="_Children_s" msprop:Generator_ColumnPropNameInTable="_Children_sColumn" msprop:Generator_UserColumnName="Children's" type="xs:boolean" />
+              <xs:element name="Foreign" msprop:Generator_ColumnVarNameInTable="columnForeign" msprop:Generator_ColumnPropNameInRow="Foreign" msprop:Generator_ColumnPropNameInTable="ForeignColumn" msprop:Generator_UserColumnName="Foreign" type="xs:boolean" />
+              <xs:element name="Romance" msprop:Generator_ColumnVarNameInTable="columnRomance" msprop:Generator_ColumnPropNameInRow="Romance" msprop:Generator_ColumnPropNameInTable="RomanceColumn" msprop:Generator_UserColumnName="Romance" type="xs:boolean" />
+              <xs:element name="Suspense" msprop:Generator_ColumnVarNameInTable="columnSuspense" msprop:Generator_ColumnPropNameInRow="Suspense" msprop:Generator_ColumnPropNameInTable="SuspenseColumn" msprop:Generator_UserColumnName="Suspense" type="xs:boolean" />
+              <xs:element name="Non-Fiction" msprop:Generator_ColumnVarNameInTable="_columnNon_Fiction" msprop:Generator_ColumnPropNameInRow="_Non_Fiction" msprop:Generator_ColumnPropNameInTable="_Non_FictionColumn" msprop:Generator_UserColumnName="Non-Fiction" type="xs:boolean" />
+              <xs:element name="Comedy" msprop:Generator_ColumnVarNameInTable="columnComedy" msprop:Generator_ColumnPropNameInRow="Comedy" msprop:Generator_ColumnPropNameInTable="ComedyColumn" msprop:Generator_UserColumnName="Comedy" type="xs:boolean" />
+              <xs:element name="History" msprop:Generator_ColumnVarNameInTable="columnHistory" msprop:Generator_ColumnPropNameInRow="History" msprop:Generator_ColumnPropNameInTable="HistoryColumn" msprop:Generator_UserColumnName="History" type="xs:boolean" />
+              <xs:element name="Sci-Fi" msprop:Generator_ColumnVarNameInTable="_columnSci_Fi" msprop:Generator_ColumnPropNameInRow="_Sci_Fi" msprop:Generator_ColumnPropNameInTable="_Sci_FiColumn" msprop:Generator_UserColumnName="Sci-Fi" type="xs:boolean" />
+              <xs:element name="Textbook" msprop:Generator_ColumnVarNameInTable="columnTextbook" msprop:Generator_ColumnPropNameInRow="Textbook" msprop:Generator_ColumnPropNameInTable="TextbookColumn" msprop:Generator_UserColumnName="Textbook" type="xs:boolean" />
+              <xs:element name="Autobiography" msprop:Generator_ColumnVarNameInTable="columnAutobiography" msprop:Generator_ColumnPropNameInRow="Autobiography" msprop:Generator_ColumnPropNameInTable="AutobiographyColumn" msprop:Generator_UserColumnName="Autobiography" type="xs:boolean" />
+              <xs:element name="Drama" msprop:Generator_ColumnVarNameInTable="columnDrama" msprop:Generator_ColumnPropNameInRow="Drama" msprop:Generator_ColumnPropNameInTable="DramaColumn" msprop:Generator_UserColumnName="Drama" type="xs:boolean" />
+              <xs:element name="Horror" msprop:Generator_ColumnVarNameInTable="columnHorror" msprop:Generator_ColumnPropNameInRow="Horror" msprop:Generator_ColumnPropNameInTable="HorrorColumn" msprop:Generator_UserColumnName="Horror" type="xs:boolean" />
+              <xs:element name="Self-Help" msprop:Generator_ColumnVarNameInTable="_columnSelf_Help" msprop:Generator_ColumnPropNameInRow="_Self_Help" msprop:Generator_ColumnPropNameInTable="_Self_HelpColumn" msprop:Generator_UserColumnName="Self-Help" type="xs:boolean" />
+              <xs:element name="Thriller" msprop:Generator_ColumnVarNameInTable="columnThriller" msprop:Generator_ColumnPropNameInRow="Thriller" msprop:Generator_ColumnPropNameInTable="ThrillerColumn" msprop:Generator_UserColumnName="Thriller" type="xs:boolean" />
+              <xs:element name="Biography" msprop:Generator_ColumnVarNameInTable="columnBiography" msprop:Generator_ColumnPropNameInRow="Biography" msprop:Generator_ColumnPropNameInTable="BiographyColumn" msprop:Generator_UserColumnName="Biography" type="xs:boolean" />
+              <xs:element name="Fantasy" msprop:Generator_ColumnVarNameInTable="columnFantasy" msprop:Generator_ColumnPropNameInRow="Fantasy" msprop:Generator_ColumnPropNameInTable="FantasyColumn" msprop:Generator_UserColumnName="Fantasy" type="xs:boolean" />
+              <xs:element name="Religious" msprop:Generator_ColumnVarNameInTable="columnReligious" msprop:Generator_ColumnPropNameInRow="Religious" msprop:Generator_ColumnPropNameInTable="ReligiousColumn" msprop:Generator_UserColumnName="Religious" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BookInventoryTable" />
+      <xs:field xpath="mstns:Isbn" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
